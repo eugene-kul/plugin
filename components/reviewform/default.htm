@@ -1,8 +1,8 @@
 <div class="reviews-form">
-	<form 
+	<form
 		data-request="{{ __SELF__ }}::onSaveReview"
-		data-request-success="$.oc.flashMsg({text: '{{ __SELF__.SuccessSend }}', 'class': 'success', 'interval': 10});"
-		data-request-error="$.oc.flashMsg({text: '{{ __SELF__.ErrorSend }}', 'class': 'error', 'interval': 10});">
+		data-request-success="sendMsg(this);"
+		data-request-error="noSendMsg(this);">
 		<input type="hidden" name="reviewpPrt" value="">
 
       <div class="form-group-rating">
@@ -32,19 +32,42 @@
       <div class="form-group-inputs">
          <label>
             <span>Имя<sup>*</sup></span>
-            <input type="text" name="reviewName" autocomplete="off" value="" required>
+            <input type="text" name="reviewName" autocomplete="off" value="" required placeholder="Ваше имя">
          </label>
          <label>
-            <span>Контакты для обратной связи</span>
+            <span>Контакты</span>
             <input type="text" name="reviewContscts" autocomplete="off" value="" placeholder="Телефон/E-mail">
          </label>
       </div>
-
+      <div class="form-group-inputs flex-right">
+         <div class="messengers__file-input-body">
+            <label for="file-1" class="messengers__file-input-label js-input-files-label">
+               <span>Выберите файл</span>
+               <div class="messengers__form-input-icon messengers__form-input-icon--red"><svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m12 14c-.192 0-.384-.073-.53-.22l-5.25-5.25c-.471-.471-.136-1.28.53-1.28h2.75v-6c0-.689.561-1.25 1.25-1.25h2.5c.689 0 1.25.561 1.25 1.25v6h2.75c.666 0 1.001.809.53 1.28l-5.25 5.25c-.146.147-.338.22-.53.22z"/><path d="m11 21.192-11-5.042v2.35c0 .199.118.379.301.458l10.699 4.652z"/><path d="m13 21.192v2.419l10.699-4.652c.183-.08.301-.26.301-.459v-2.35z"/><path d="m17.581 11.558-3.636 3.636c-.52.52-1.211.806-1.945.806s-1.425-.286-1.944-.806l-3.636-3.636-6.42 2.942 12 5.5 12-5.5z"/></svg></div>
+               <input type="file" name="" multiple id="file-1" required class="messengers__file js-input-files">
+            </label>
+            <div class="btn-del js-btn-del hide" title="Удалить файлы"></div>
+         </div>
+      </div>
 		<label>
 			<span>Текст отзыва<sup>*</sup></span>
-			<textarea id="review_texteditor" name="reviewText" rows="10" value="" required></textarea>
+			<textarea id="review_texteditor" name="reviewText" rows="8" value="" required></textarea>
 		</label>
-
+      <div class="reviews-form-info">Нажимая на кнопку, Вы даете согласие на обработку персональных данных, указанных на сайте. Контактные данные не будут отображены в отзыве, они нужны только для обратной связи.</div>
 		<button class="btn-review btn-review-2" type="submit">Отправить</button>
+
+      <div class="modal-success">
+         <p class="modal-success__title">{{ __SELF__.SuccessSend }}</p>
+         <p class="modal-success__icon">
+            <svg width="150" height="150" viewBox="0 0 510 510" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <path fill="#fff" d="M150.45,206.55l-35.7,35.7L229.5,357l255-255l-35.7-35.7L229.5,285.6L150.45,206.55z M459,255c0,112.2-91.8,204-204,204 S51,367.2,51,255S142.8,51,255,51c20.4,0,38.25,2.55,56.1,7.65l40.801-40.8C321.3,7.65,288.15,0,255,0C114.75,0,0,114.75,0,255 s114.75,255,255,255s255-114.75,255-255H459z"></path>
+            </svg>
+         </p>
+      </div>
+      <div class="modal-success-error">
+         <p>{{ __SELF__.ErrorSend }}<br></p>
+         <span class="btn-review" onclick="location.reload(false);">Обновить</span>
+      </div>
+      
 	</form>
 </div>

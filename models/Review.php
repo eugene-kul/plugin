@@ -1,7 +1,6 @@
 <?php namespace Eugene3993\Reviews\Models;
 
 use Model;
-use Lang;
 
 /**
  * Review Model

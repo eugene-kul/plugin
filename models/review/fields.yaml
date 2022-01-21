@@ -4,7 +4,7 @@
 
 fields:
   publish:
-    type: checkbox
+    type: switch
     label: 'Опубликовать отзыв'
     default: false
   name:
@@ -27,6 +27,11 @@ fields:
         - 5
     span: auto
     type: dropdown
+  date:
+    label: 'Дата отзыва'
+    type: datepicker
+    mode: date
+    span: auto
   text:
     type: richeditor
     label: 'Текст отзыва'

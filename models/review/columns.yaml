@@ -4,31 +4,35 @@
 
 columns:
   unread:
-    type: partial
     label: 'new'
+    type: partial
     path: $/eugene3993/reviews/models/review/_unread.htm
     width: 50px
   name:
-    type: text
     label: 'Имя'
+    type: text
     sortable: true
   text:
-    type: partial
     label: 'Текст отзыва'
+    type: partial
     path: $/eugene3993/reviews/models/review/_text.htm
     sortable: true
   contacts:
-    type: text
     label: 'Контакты'
+    type: text
     sortable: true
   rating:
-    type: text
     label: 'Оценка'
+    type: text
     width: 50px
     sortable: true
   publish:
     label: 'Публикация отзыва'
     type: inetis-list-switch
+    width: 100px
+  date:
+    label: 'Дата отзыва'
+    type: text
     width: 100px
   updated_at:
     label: 'Последние обновления'

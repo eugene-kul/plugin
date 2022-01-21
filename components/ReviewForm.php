@@ -20,13 +20,13 @@ class ReviewForm extends ComponentBase
                 'title'         => 'Сообщение об отправке',
                 'description'   => 'Текст cообщения при успешной отправке отзыва',
                 'type'          => 'string',
-                'default'       => 'Спасибо! Отзыв успешно отправлен'
+                'default'       => 'Спасибо! Ваш отзыв успешно отправлен. Он появится на сайте после модерации.'
             ],
             'ErrorSend' => [
                 'title'         => 'Сообщение об ошибке',
                 'description'   => 'Текст cообщения с ошибкой отправки отзыва',
                 'type'          => 'string',
-                'default'       => 'Отзыв не был отправлен'
+                'default'       => 'Отзыв не был отправлен, пожалуйста, обновите страницу и попробуйте еще раз'
             ],
             'reviewstyle' => [
                 'title'         => 'Подключить стили',
@@ -53,21 +53,24 @@ class ReviewForm extends ComponentBase
     }
 
 
-    public function onSaveReview()
-    {   
-        $PostPrt = post('reviewpPrt');
-        if ($PostPrt == null) {
-            $PostName = post('reviewName');
-            $PostContacts = post('reviewContscts');
-            $PostRating = post('reviewRating');
-            $PostText = post('reviewText');
-            $ReviewName = new Review;
-            $ReviewName->name = $PostName;
-            $ReviewName->text = $PostText;
-            $ReviewName->contacts = $PostContacts;
-            $ReviewName->rating = $PostRating;
-            $ReviewName->unread = true;
-            $ReviewName->save();
-        }    
+    public function onSaveReview() {
+      $PostPrt = post('reviewpPrt');
+      date_default_timezone_set('Europe/Moscow');
+      $date = date('Y-m-d H:m:s');
+      if ($PostPrt == null) {
+         $PostName = post('reviewName');
+         $PostContacts = post('reviewContscts');
+         $PostRating = post('reviewRating');
+         $PostText = post('reviewText');
+         $ReviewName = new Review;
+         $ReviewName->name = $PostName;
+         $ReviewName->text = $PostText;
+         $ReviewName->contacts = $PostContacts;
+         $ReviewName->rating = $PostRating;
+         $ReviewName->date = $date;
+         $ReviewName->unread = true;
+         $ReviewName->publish = false;
+         $ReviewName->save();
+      }    
     }
 }
