@@ -6,26 +6,26 @@
 name: Simple Review
 
 # Model Form Field configuration
-form: $/yamobile/reviews/models/review/fields.yaml
+form: $/eugene3993/reviews/models/review/fields.yaml
 
 # Model Class name
-modelClass: Yamobile\Reviews\Models\Review
+modelClass: Eugene3993\Reviews\Models\Review
 
 # Default redirect location
-defaultRedirect: yamobile/reviews/reviews
+defaultRedirect: eugene3993/reviews/reviews
 
 # Create page
 create:
     title: Create Simple Review
-    redirect: yamobile/reviews/reviews/update/:id
-    redirectClose: yamobile/reviews/reviews
+    redirect: eugene3993/reviews/reviews/update/:id
+    redirectClose: eugene3993/reviews/reviews
     flashSave: 'Отзыв сохранен'
 
 # Update page
 update:
     title: Edit Simple Review
-    redirect: yamobile/reviews/reviews
-    redirectClose: yamobile/reviews/reviews
+    redirect: eugene3993/reviews/reviews
+    redirectClose: eugene3993/reviews/reviews
     flashSave: 'Отзыв сохранен'
     flashDelete: 'Отзыв удален'
 

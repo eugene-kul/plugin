@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('yamobile/reviews/reviews') ?>"><?php echo e(trans('Отзывы')) ?></a></li>
+        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo e(trans('Отзывы')) ?></a></li>
         <li><?php echo e(trans('Новый Отзыв')) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -14,6 +14,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('yamobile/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('Вернутсья к списку отзывов')) ?></a></p>
+    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('Вернутсья к списку отзывов')) ?></a></p>
 
 <?php endif ?>

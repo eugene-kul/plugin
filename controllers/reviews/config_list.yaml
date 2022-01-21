@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/yamobile/reviews/models/review/columns.yaml
+list: $/eugene3993/reviews/models/review/columns.yaml
 
 # Model Class name
-modelClass: Yamobile\Reviews\Models\Review
+modelClass: Eugene3993\Reviews\Models\Review
 
 # List Title
 title: Manage Simple Reviews
 
 # Link URL for each record
-recordUrl: yamobile/reviews/reviews/update/:id
+recordUrl: eugene3993/reviews/reviews/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

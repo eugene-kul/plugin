@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
         <li>
-            <a href="<?= Backend::url('yamobile/reviews/reviews') ?>"><?php echo e(trans('Отзывы')) ?></a>
+            <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo e(trans('Отзывы')) ?></a>
         </li>
         <li>
             <?php echo e(trans('Отзыв: ')) ?> 
@@ -46,7 +46,7 @@
                     data-request-confirm="<?php echo e(trans('Удалить этот отзыв?')) ?>">
                 </button>
                 <span class="btn-text">
-                    <?php echo e(trans('или')) ?> <a href="<?= Backend::url('yamobile/reviews/reviews') ?>"><?php echo e(trans('Отменить')) ?></a>
+                    <?php echo e(trans('или')) ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo e(trans('Отменить')) ?></a>
                 </span>
             </div>
         </div>
@@ -56,6 +56,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('yamobile/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('Вернутсья к списку отзывов')) ?></a></p>
+    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('Вернутсья к списку отзывов')) ?></a></p>
 
 <?php endif ?>

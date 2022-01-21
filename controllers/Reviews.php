@@ -1,8 +1,8 @@
-<?php namespace Yamobile\Reviews\Controllers;
+<?php namespace Eugene3993\Reviews\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use Yamobile\Reviews\Models\Review;
+use Eugene3993\Reviews\Models\Review;
 
 /**
  * Simple Reviews Back-end Controller
@@ -21,7 +21,7 @@ class Reviews extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Yamobile.Reviews', 'reviews', 'reviews');
+        BackendMenu::setContext('Eugene3993.Reviews', 'reviews', 'reviews');
     }
 
     public function update($recordId)

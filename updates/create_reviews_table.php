@@ -1,4 +1,4 @@
-<?php namespace Yamobile\Reviews\Updates;
+<?php namespace Eugene3993\Reviews\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -8,7 +8,7 @@ class CreateReviewsTable extends Migration
 {
     public function up()
     {
-        Schema::create('yamobile_reviews_list', function (Blueprint $table) {
+        Schema::create('eugene3993_reviews_list', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
@@ -23,6 +23,6 @@ class CreateReviewsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('yamobile_reviews_list');
+        Schema::dropIfExists('eugene3993_reviews_list');
     }
 }

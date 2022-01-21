@@ -1,7 +1,7 @@
-<?php namespace Yamobile\Reviews\Components;
+<?php namespace Eugene3993\Reviews\Components;
 
 use Cms\Classes\ComponentBase;
-use Yamobile\Reviews\Models\Review;
+use Eugene3993\Reviews\Models\Review;
 
 class ReviewForm extends ComponentBase
 {

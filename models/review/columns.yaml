@@ -6,7 +6,7 @@ columns:
   unread:
     type: partial
     label: 'new'
-    path: $/yamobile/reviews/models/review/_unread.htm
+    path: $/eugene3993/reviews/models/review/_unread.htm
     width: 50px
   name:
     type: text
@@ -15,7 +15,7 @@ columns:
   text:
     type: partial
     label: 'Текст отзыва'
-    path: $/yamobile/reviews/models/review/_text.htm
+    path: $/eugene3993/reviews/models/review/_text.htm
     sortable: true
   contacts:
     type: text

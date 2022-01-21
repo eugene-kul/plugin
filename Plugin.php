@@ -1,4 +1,4 @@
-<?php namespace Yamobile\Reviews;
+<?php namespace Eugene3993\Reviews;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -16,12 +16,11 @@ class Plugin extends PluginBase {
     *
     * @return array
     */
-   public function pluginDetails()
-   {
+   public function pluginDetails() {
       return [
          'name'        => 'Отзывы',
          'description' => 'Плагин для отправки и модерации отзывов',
-         'author'      => 'Ya-mobile',
+         'author'      => 'Eugene3993',
          'icon'        => 'icon-comments'
       ];
    }
@@ -31,31 +30,24 @@ class Plugin extends PluginBase {
     *
     * @return void
     */
-   public function register()
-   {
-
-   }
+   public function register() {}
 
    /**
     * Boot method, called right before the request route.
     *
     * @return array
     */
-   public function boot()
-   {
-
-   }
+   public function boot() {}
 
    /**
     * Registers any front-end components implemented in this plugin.
     *
     * @return array
     */
-   public function registerComponents()
-   {
+   public function registerComponents() {
       return [
-         'Yamobile\Reviews\Components\ReviewForm' => 'ReviewForm',
-         'Yamobile\Reviews\Components\ReviewList' => 'ReviewList'
+         'Eugene3993\Reviews\Components\ReviewForm' => 'ReviewForm',
+         'Eugene3993\Reviews\Components\ReviewList' => 'ReviewList'
       ];
    }
 
@@ -64,32 +56,20 @@ class Plugin extends PluginBase {
     *
     * @return array
     */
-   public function registerPermissions()
-   {
-      return []; // Remove this line to activate
-
-      return [
-         'yamobile.reviews.some_permission' => [
-               'tab' => 'Reviews',
-               'label' => 'Some permission'
-         ],
-      ];
-   }
+   public function registerPermissions() {}
 
    /**
     * Registers back-end navigation items for this plugin.
     *
     * @return array
     */
-   public function registerNavigation()
-   {
-
+   public function registerNavigation() {
       return [
          'reviews' => [
                'label'       => 'Отзывы',
-               'url'         => Backend::url('yamobile/reviews/Reviews'),
+               'url'         => Backend::url('eugene3993/reviews/Reviews'),
                'icon'        => 'icon-comments',
-               'permissions' => ['yamobile.reviews.*'],
+               'permissions' => ['eugene3993.reviews.*'],
                'order'       => 500,
          ],
       ];

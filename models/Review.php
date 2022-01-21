@@ -1,4 +1,4 @@
-<?php namespace Yamobile\Reviews\Models;
+<?php namespace Eugene3993\Reviews\Models;
 
 use Model;
 use Lang;
@@ -13,7 +13,7 @@ class Review extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'yamobile_reviews_list';
+    public $table = 'eugene3993_reviews_list';
 
     /**
      * @var array Guarded fields

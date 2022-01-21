@@ -1,4 +1,4 @@
-<?php namespace Yamobile\Reviews\Components;
+<?php namespace Eugene3993\Reviews\Components;
 
 use Cms\Classes\ComponentBase;
 
@@ -46,9 +46,9 @@ class ReviewList extends ComponentBase {
             $this->addCss('assets/css/reviews-with-paginate.css');
         }
         if ($this->property('SortOrder') == 'new') {
-         $this->reviews = \Yamobile\Reviews\Models\Review::where('publish', true)->orderBy('created_at', 'desc')->paginate($this->property('items'));
+         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->orderBy('created_at', 'desc')->paginate($this->property('items'));
         } elseif ($this->property('SortOrder') == 'old') {
-            $this->reviews = \Yamobile\Reviews\Models\Review::where('publish', true)->orderBy('created_at', 'asc')->paginate($this->property('items'));
+            $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->orderBy('created_at', 'asc')->paginate($this->property('items'));
         }
     }
 }
