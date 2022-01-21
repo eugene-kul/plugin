@@ -1,10 +1,10 @@
-<?php namespace Yamobile\SimpleReviews;
+<?php namespace Yamobile\Reviews;
 
 use Backend;
 use System\Classes\PluginBase;
 
 /**
- * SimpleReviews Plugin Information File
+ * Reviews Plugin Information File
  */
 class Plugin extends PluginBase {
    public $require = [
@@ -54,8 +54,8 @@ class Plugin extends PluginBase {
    public function registerComponents()
    {
       return [
-         'Yamobile\SimpleReviews\Components\ReviewForm' => 'ReviewForm',
-         'Yamobile\SimpleReviews\Components\ReviewList' => 'ReviewList'
+         'Yamobile\Reviews\Components\ReviewForm' => 'ReviewForm',
+         'Yamobile\Reviews\Components\ReviewList' => 'ReviewList'
       ];
    }
 
@@ -69,8 +69,8 @@ class Plugin extends PluginBase {
       return []; // Remove this line to activate
 
       return [
-         'ironlab.simplereviews.some_permission' => [
-               'tab' => 'SimpleReviews',
+         'yamobile.reviews.some_permission' => [
+               'tab' => 'Reviews',
                'label' => 'Some permission'
          ],
       ];
@@ -85,11 +85,11 @@ class Plugin extends PluginBase {
    {
 
       return [
-         'simplereviews' => [
+         'reviews' => [
                'label'       => 'Отзывы',
-               'url'         => Backend::url('ironlab/simplereviews/SimpleReviews'),
+               'url'         => Backend::url('yamobile/reviews/Reviews'),
                'icon'        => 'icon-comments',
-               'permissions' => ['ironlab.simplereviews.*'],
+               'permissions' => ['yamobile.reviews.*'],
                'order'       => 500,
          ],
       ];
