@@ -1,0 +1,38 @@
+/*Simple list*/
+
+.reviews-list {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
+}
+
+.reviews-list .rw-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+.reviews-list .rw-list li {
+	padding: 15px;
+	margin-bottom: 2rem;
+	-webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,0.14);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.14);
+}
+
+.reviews-list .rw-list li:hover {
+	-webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.18);
+}
+
+.reviews-list .rw-list li .name {
+	font-size: 18px;
+	margin-bottom: 0.5rem;
+}
+
+.reviews-list .rw-list li .text-review {
+	font-size: 16px;
+}
+
+.reviews-list .rw-list li .text-review:last-child{
+	margin-bottom: 0;
+}

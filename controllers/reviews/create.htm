@@ -1,0 +1,48 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('yamobile/reviews/reviews') ?>"><?php echo e(trans('Отзывы')) ?></a></li>
+        <li><?php echo e(trans('Новый Отзыв')) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+
+        <div class="layout-row">
+            <?= $this->formRender() ?>
+        </div>
+
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="<?php echo e(trans('Сохранение...')) ?>"
+                    class="btn btn-primary">
+                    <?php echo e(trans('Сохранить')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter, cmd+enter"
+                    data-load-indicator="<?php echo e(trans('Сохранение...')) ?>"
+                    class="btn btn-default">
+                    <?php echo e(trans('Сохранить')) ?>
+                </button>
+                <span class="btn-text">
+                    <?php echo e(trans('или')) ?> <a href="<?= Backend::url('yamobile/reviews/reviews') ?>"><?php echo e(trans('Отменить')) ?></a>
+                </span>
+            </div>
+        </div>
+
+    <?= Form::close() ?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('yamobile/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('Вернутсья к списку отзывов')) ?></a></p>
+
+<?php endif ?>

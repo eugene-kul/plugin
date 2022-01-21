@@ -1,0 +1,34 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Simple Review
+
+# Model Form Field configuration
+form: $/yamobile/reviews/models/review/fields.yaml
+
+# Model Class name
+modelClass: Yamobile\Reviews\Models\Review
+
+# Default redirect location
+defaultRedirect: yamobile/reviews/reviews
+
+# Create page
+create:
+    title: Create Simple Review
+    redirect: yamobile/reviews/reviews/update/:id
+    redirectClose: yamobile/reviews/reviews
+    flashSave: 'Отзыв сохранен'
+
+# Update page
+update:
+    title: Edit Simple Review
+    redirect: yamobile/reviews/reviews
+    redirectClose: yamobile/reviews/reviews
+    flashSave: 'Отзыв сохранен'
+    flashDelete: 'Отзыв удален'
+
+# Preview page
+preview:
+    title: Preview Simple Review

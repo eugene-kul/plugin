@@ -1,0 +1,35 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  publish:
+    type: checkbox
+    label: 'Опубликовать отзыв'
+    default: false
+  name:
+    type: text
+    label: 'Имя'
+    span: auto
+    required: true
+  contacts:
+    type: text
+    label: 'Контакты: Телефон/E-mail'
+    span: auto
+  rating:
+    label: 'Оценка отзыва'
+    options:
+        - 'Выберите оценку'
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+    span: auto
+    type: dropdown
+  text:
+    type: richeditor
+    label: 'Текст отзыва'
+    size: giant
+    span: full
+    required: true

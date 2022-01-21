@@ -1,0 +1,42 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+  unread:
+    type: partial
+    label: 'new'
+    path: $/yamobile/reviews/models/review/_unread.htm
+    width: 50px
+  name:
+    type: text
+    label: 'Имя'
+    sortable: true
+  text:
+    type: partial
+    label: 'Текст отзыва'
+    path: $/yamobile/reviews/models/review/_text.htm
+    sortable: true
+  contacts:
+    type: text
+    label: 'Контакты'
+    sortable: true
+  rating:
+    type: text
+    label: 'Оценка'
+    width: 50px
+    sortable: true
+  publish:
+    label: 'Публикация отзыва'
+    type: inetis-list-switch
+    width: 100px
+  updated_at:
+    label: 'Последние обновления'
+    type: timetense
+    sortable: true
+    width: 200px
+  created_at:
+    label: 'Дата создания'
+    type: timesince
+    sortable: true
+    width: 200px

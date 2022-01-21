@@ -1,0 +1,15 @@
+<div class="reviews-full-list">
+	{% if __SELF__.reviews %}
+	<ul class="rw-list">
+		{% for item in __SELF__.reviews %}
+		<li>
+			<div class="name"><strong>{{item.name}}</strong></div>
+			<div class="text-review">
+				{{item.text|raw}}
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{{ __SELF__.reviews.render|raw }}
+</div>
