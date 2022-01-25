@@ -8,14 +8,14 @@ columns:
     type: partial
     path: $/eugene3993/reviews/models/review/_unread.htm
     width: 50px
+    cssClass: center-text
   name:
     label: 'Имя'
     type: text
     sortable: true
   text:
     label: 'Текст отзыва'
-    type: partial
-    path: $/eugene3993/reviews/models/review/_text.htm
+    type: text
     sortable: true
   contacts:
     label: 'Контакты'
@@ -25,22 +25,35 @@ columns:
     label: 'Оценка'
     type: text
     width: 50px
+    cssClass: center-text
+    sortable: true
+  files:
+    label: 'Фото'
+    type: partial
+    path: $/eugene3993/reviews/models/review/_photo-length.htm
+    width: 100px
+    sortable: true
+    cssClass: center-text
+  reply:
+    label: 'Ответ'
+    type: switch
+    width: 100px
     sortable: true
   publish:
-    label: 'Публикация отзыва'
+    label: 'Публикация'
     type: inetis-list-switch
+    cssClass: center-text
     width: 100px
+    sortable: true
   date:
     label: 'Дата отзыва'
-    type: text
+    type: date
     width: 100px
+    cssClass: center-text
+    sortable: true
   updated_at:
     label: 'Последние обновления'
     type: timetense
-    sortable: true
     width: 200px
-  created_at:
-    label: 'Дата создания'
-    type: timesince
+    cssClass: center-text
     sortable: true
-    width: 200px

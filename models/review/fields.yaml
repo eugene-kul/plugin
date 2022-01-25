@@ -32,9 +32,26 @@ fields:
     type: datepicker
     mode: date
     span: auto
+    required: true
+  files:
+    label: 'Files'
+    mode: image
+    imageWidth: '100'
+    imageHeight: '100'
+    useCaption: true
+    thumbOptions:
+        mode: crop
+        extension: auto
+    span: full
+    type: fileupload
   text:
-    type: richeditor
+    type: textarea
     label: 'Текст отзыва'
-    size: giant
+    size: large
     span: full
     required: true
+  reply:
+    type: textarea
+    label: 'Ответ на комментарий'
+    size: large
+    span: full

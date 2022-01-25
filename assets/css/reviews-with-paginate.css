@@ -1,7 +1,11 @@
 .reviews-list {
 	max-width: 800px;
-   margin: 4rem auto;
+   margin: 2rem auto 1rem;
    box-sizing: border-box;
+}
+
+.reviews-list.reviews-list-100 {
+	max-width: 100%;
 }
 
 .reviews-list * {
@@ -14,11 +18,12 @@
 }
 
 .reviews-list .revirews-list-body li {
+   list-style: none;
 	padding: 15px 20px;
 	margin-bottom: 1.5rem;
    border-radius: 5px;
-   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
-   border: 1px solid #eee;
+   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.05);
+   border: 1px solid #ddd;
    background-color: #fff;
 }
 
@@ -26,6 +31,28 @@
    padding: 5px 0;
    border-bottom: 1px solid #ccc;
    margin-bottom: 5px;
+}
+
+.review-image {
+   border: 1px solid #ccc;
+   display: inline-block;
+   margin: 0 5px 5px 0;
+   border: 2px solid l;
+   width: 100px;
+   height: 100px;
+}
+
+.review-image img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+}
+
+@media(max-width: 479px) {
+   .review-image {
+      width: calc(50% - 5px);
+   }
 }
 
 .reviews-list .revirews-list-body li .revirew-name {
@@ -37,6 +64,7 @@
 	font-size: 15px;
    padding: 5px 0;
    line-height: normal;
+   margin-bottom: 5px;
 }
 
 .reviews-list .revirews-list-body li .revirew-text p:last-child {
@@ -50,28 +78,40 @@
 .reviews-list .pagination li a {
    position: relative;
    display: block;
-   padding: .5rem .75rem;
+   padding: .5rem 1rem;
    margin-left: -1px;
-   line-height: 1.25;
    color: #333;
+   font-size: 14px;
+   line-height: normal;
    font-weight: 700;
    background-color: #fff;
    border: 1px solid #dee2e6;
    text-decoration: none;
+   transition: none;
 }
 
 .reviews-list .pagination li a:hover {
-   background-color: #edf2f8;
+   background-color: #5181b8;
+   border: 1px solid #dee2e6;
+   color: #fff;
 }
 
 .reviews-list .pagination li span {
 	position: relative;
    display: block;
-   padding: .5rem .75rem;
+   padding: .5rem 1rem;
    margin-left: -1px;
-   line-height: 1.25;
+   
    color: #bbb;
+   font-size: 14px;
+   line-height: normal;
    font-weight: 700;
+   background-color: #f2f2f2;
+   border: 1px solid #dee2e6;
+}
+
+.reviews-list .pagination li span:hover {
+	color: #bbb;
    background-color: #f2f2f2;
    border: 1px solid #dee2e6;
 }
@@ -109,7 +149,7 @@
 }
 
 .revirew-rating {
-   display: inline-block;
+   display: inline-flex;
    opacity: 0.65;
    padding: 4px 0;
 }
@@ -124,3 +164,30 @@
    stroke: #333;
    stroke-width: 7px;
 }
+
+.review-reply {
+   background-color: #f3f3f3;
+   padding: 10px 20px;
+   margin-top: 20px;
+   margin-bottom: 5px;
+   border-radius: 10px;
+   position: relative;
+}
+.review-reply:before {
+   content: '';
+   position: absolute;
+   top: -32px;
+   left: 5%;
+   border: 15px solid transparent;
+   border-bottom: 17px solid #f3f3f3;
+}
+.review-reply i {
+   color: #999;
+   display: inline-block;
+   padding: 5px 0;
+   font-size: 12px;
+}
+.review-reply p {
+   line-height: normal;
+}
+

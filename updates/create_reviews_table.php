@@ -14,6 +14,7 @@ class CreateReviewsTable extends Migration {
          $table->string('rating');
          $table->string('date')->nullable();
          $table->text('text');
+         $table->text('reply')->nullable();
          $table->boolean('unread')->nullable();
          $table->boolean('publish')->nullable();
          $table->timestamps();

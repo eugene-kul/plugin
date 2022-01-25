@@ -1,10 +1,10 @@
-<div class="reviews-list">
+<div class="reviews-list {{ __SELF__.width100 ? 'reviews-list-100' : null }}">
 	{% if __SELF__.reviews %}
       <ul class="revirews-list-body">
          {% for item in __SELF__.reviews %}
          <li>
             <div class="revirew-name-block">
-               <div class="revirew-name">{{ item.name }}</div>
+                <div class="revirew-name">{{ item.name }}</div>
                
                <div class="revirew-rating">
                   {% for i in 1..5 %}
@@ -12,11 +12,24 @@
                   {% endfor %}
                </div>
 
-               <span class="revirew-date">{{ item.date|date('d.m.Y') }}</span>
+               <span class="revirew-date">{{ item.date ? item.date|date_modify("+10 hours")|date('d.m.Y') : item.created_at|date('d.m.Y') }}</span> 
             </div>
-            <div class="revirew-text">
-               {{ item.text|raw }}
+            <div class="revirew-text">{{ item.text }}</div> 
+            <div>
+               {% for image in item.files %}
+                  {% if image.content_type|slice(0, 5) == 'image' %}
+                     <a href="{{ image.path }}" class="review-image lightzoom">
+                        <img src="{{ image.thumb(120, 120, {'mode':'crop'}) }}" alt="{{ image.file_name }}" title="{{ image.file_name }}">
+                     </a>
+                  {% endif %}
+               {% endfor %}
             </div>
+            {% if item.reply %}
+               <div class="review-reply">
+                  <i>Официальный ответ компании:</i>
+                  <p> {{ item.reply }}</p>
+               </div>
+            {% endif %}
          </li>
          {% endfor %}
       </ul>

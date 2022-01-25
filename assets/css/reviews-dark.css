@@ -1,0 +1,41 @@
+.reviews-form {
+   background-color: #666 !important;
+}
+
+.rating-body .ec-rating-description {
+   color: #fff !important;
+}
+
+.reviews-form label span {
+   color: #fff !important;
+}
+
+.file-input-body>span {
+   color: #ccc !important;
+}
+
+.file-input-body label>span {
+   color: #333 !important;
+}
+
+.reviews-list .revirews-list-body li {
+   background-color: #666 !important;
+}
+
+.reviews-list .revirews-list-body li .revirew-name {
+   color: #fff !important;
+}
+
+.reviews-list .revirews-list-body li .revirew-text {
+   color: #fff !important;
+}
+
+.reviews-list .pagination li a {
+   background-color: #666 !important;
+   color: #fff !important;
+}
+
+.reviews-list .pagination li span {
+   background-color: #ccc !important;
+   color: #aaa !important;
+}
