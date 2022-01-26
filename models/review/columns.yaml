@@ -12,6 +12,7 @@ columns:
   name:
     label: 'Имя'
     type: text
+    width: 200px
     sortable: true
   text:
     label: 'Текст отзыва'
