@@ -31,6 +31,11 @@
    padding: 5px 0;
    border-bottom: 1px solid #ccc;
    margin-bottom: 5px;
+   text-align: left;
+}
+
+.review-image-body {
+	text-align: left;
 }
 
 .review-image {
@@ -61,10 +66,11 @@
 }
 
 .reviews-list .revirews-list-body li .revirew-text {
-	font-size: 15px;
+   font-size: 15px;
    padding: 5px 0;
    line-height: normal;
-   margin-bottom: 5px;
+   margin: 0 0 5px 0;
+   text-align: left;
 }
 
 .reviews-list .revirews-list-body li .revirew-text p:last-child {
@@ -172,6 +178,7 @@
    margin-bottom: 5px;
    border-radius: 10px;
    position: relative;
+   text-align: left;
 }
 .review-reply:before {
    content: '';
@@ -186,8 +193,13 @@
    display: inline-block;
    padding: 5px 0;
    font-size: 12px;
+   text-align: left;
 }
 .review-reply p {
+   font-size: 14px;
    line-height: normal;
+   text-align: left;
+   margin: 0;
+   padding: 0;
 }
 

@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Simple Review
+name: Review
 
 # Model Form Field configuration
 form: $/eugene3993/reviews/models/review/fields.yaml
@@ -23,12 +23,8 @@ create:
 
 # Update page
 update:
-    title: Edit Simple Review
+    title: 'Редактирование отзыва'
     redirect: eugene3993/reviews/reviews
     redirectClose: eugene3993/reviews/reviews
     flashSave: 'Отзыв сохранен'
     flashDelete: 'Отзыв удален'
-
-# Preview page
-preview:
-    title: Preview Simple Review

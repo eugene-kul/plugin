@@ -5,7 +5,7 @@ use Backend\Classes\Controller;
 use Eugene3993\Reviews\Models\Review;
 
 /**
- * Simple Reviews Back-end Controller
+ * Reviews Back-end Controller
  */
 class Reviews extends Controller
 {

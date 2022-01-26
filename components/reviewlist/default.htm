@@ -15,7 +15,7 @@
                <span class="revirew-date">{{ item.date ? item.date|date_modify("+10 hours")|date('d.m.Y') : item.created_at|date('d.m.Y') }}</span> 
             </div>
             <div class="revirew-text">{{ item.text }}</div> 
-            <div>
+            <div class="review-image-body">
                {% for image in item.files %}
                   {% if image.content_type|slice(0, 5) == 'image' %}
                      <a href="{{ image.path }}" class="review-image lightzoom">
