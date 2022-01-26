@@ -47,11 +47,11 @@ fields:
   text:
     type: textarea
     label: 'Текст отзыва'
-    size: large
+    size: small
     span: full
     required: true
   reply:
     type: textarea
     label: 'Ответ на комментарий'
-    size: large
+    size: small
     span: full
