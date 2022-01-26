@@ -2,7 +2,7 @@
     <a
         href="<?= Backend::url('eugene3993/reviews/reviews/create') ?>"
         class="btn btn-primary oc-icon-plus">
-        <?php echo 'Новый отзыв' ?>
+        Новый отзыв
     </a>
 
     <button
@@ -10,12 +10,12 @@
         disabled="disabled"
         onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
         data-request="onDelete"
-        data-request-confirm="<?php echo e'Удалить выбранные отзывы?' ?>"
+        data-request-confirm="Удалить выбранные отзывы?"
         data-trigger-action="enable"
         data-trigger=".control-list input[type=checkbox]"
         data-trigger-condition="checked"
         data-request-success="$(this).prop('disabled', 'disabled')"
         data-stripe-load-indicator>
-        <?php echo 'Удалить выбранные' ?>
+        Удалить выбранные
     </button>
 </div>

@@ -1,12 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li>
-            <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo 'Отзывы' ?></a>
-        </li>
-        <li>
-            <?php echo 'Отзыв: ' ?> 
-            #<?php echo $record->id ?>, <?php echo 'автор: ' ?> <?php echo $record->name ?>
-        </li>
+        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отзывы</a></li>
+        <li>Отзыв: #<?php echo $record->id ?>, автор:  <?php echo $record->name ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -25,28 +20,28 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="<?php echo 'Сохранение...' ?>"
+                    data-load-indicator="Сохранение..."
                     class="btn btn-primary">
-                    <?php echo 'Сохранить' ?>
+                    Сохранить
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="<?php echo 'Сохранение...' ?>"
+                    data-load-indicator="Сохранение..."
                     class="btn btn-default">
-                    <?php echo 'Сохранить и Закрыть' ?>
+                    Сохранить и Закрыть
                 </button>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="<?php echo 'Удаление Отзыва' ?>"
-                    data-request-confirm="<?php echo 'Удалить этот отзыв?' ?>">
+                    data-load-indicator="Удаление Отзыва"
+                    data-request-confirm="Удалить этот отзыв?">
                 </button>
                 <span class="btn-text">
-                    <?php echo 'или' ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo 'Отменить' ?></a>
+                    или <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отменить</a>
                 </span>
             </div>
         </div>
@@ -56,6 +51,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default"><?php echo 'Вернутсья к списку отзывов' ?></a></p>
+    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default">Вернутсья к списку отзывов</a></p>
 
 <?php endif ?>

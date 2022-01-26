@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo 'Отзывы' ?></a></li>
-        <li><?php echo 'Новый Отзыв' ?></li>
+        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отзывы</a></li>
+        <li>Новый Отзыв</li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -19,21 +19,21 @@
                     type="submit"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="<?php echo 'Сохранение...')) ?>"
+                    data-load-indicator="Сохранение..."
                     class="btn btn-primary">
-                    <?php echo Сохранить' ?>
+                    Сохранить
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="<?php echo 'Сохранение...')) ?>"
+                    data-load-indicator="Сохранение..."
                     class="btn btn-default">
-                    <?php echo 'Сохранить и Закрыть' ?>
+                    Сохранить и Закрыть
                 </button>
                 <span class="btn-text">
-                    <?php echo 'или' ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo 'Отменить')) ?></a>
+                    <?php echo 'или' ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отменить</a>
                 </span>
             </div>
         </div>
@@ -43,6 +43,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default"><?php echo 'Вернутсья к списку отзывов')) ?></a></p>
+    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default">Вернутсья к списку отзывов</a></p>
 
 <?php endif ?>
