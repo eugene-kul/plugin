@@ -77,6 +77,12 @@
 	margin-bottom: 0;
 }
 
+.reviews-list .pagination {
+   margin: 20px 0;
+   padding: 0;
+   text-align: center;
+}
+
 .reviews-list .pagination li {
    display: inline-block;
 }

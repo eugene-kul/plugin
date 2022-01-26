@@ -49,7 +49,7 @@ columns:
   date:
     label: 'Дата отзыва'
     type: date
-    width: 100px
+    width: 150px
     cssClass: center-text
     sortable: true
   updated_at:
