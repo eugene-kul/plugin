@@ -1,11 +1,13 @@
 <div class="reviews-form">
-	<form class="skip-forms" 
-		data-request="onSaveReview" data-request-files
+	<form class="skip-forms" data-request="{{ __SELF__ }}::onSaveReview"
+		data-request-files
 		data-request-success="sendMsg(this);"
 		data-request-error="noSendMsg(this);"
    >
 		<input type="hidden" name="reviewpPrt" value="">
-
+		{% if __SELF__.CITECODE %}
+			<input type="hidden" id="goggle_token" name="goggle_token" value="">
+		{% endif %}
       
       {{ form_token() }}
       {{ form_sessionKey() }}
@@ -78,5 +80,20 @@
          <p>{{ __SELF__.ErrorSend }}<br></p>
          <span class="btn-review" onclick="location.reload(false);">Обновить</span>
       </div>
+      {% if __SELF__.CITECODE %}
+	      <script src="https://www.google.com/recaptcha/api.js?render={{ __SELF__.CITECODE }}"></script>
+	      <script>
+	      	(function () {
+				grecaptcha.ready(function() {
+			      grecaptcha.execute('{{ __SELF__.CITECODE }}', {action: 'homepage'}).then(function(token) {
+			          inputs = document.querySelectorAll('#goggle_token');
+			          for (let input of inputs) {
+			          	input.value = token;
+			          }
+			      });
+			    });
+			}());
+	      </script>
+      {% endif %}
 	</form>
 </div>

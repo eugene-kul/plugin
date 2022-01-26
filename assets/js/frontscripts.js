@@ -64,7 +64,6 @@ Array.prototype.forEach.call(inputs, function (input) {
 function sendMsg(form) {
    form.querySelector('.modal-success').classList.add('active');
    form.querySelector('button').disabled = true;
-   console.log([form]);
 }
 
 function noSendMsg(form) {
@@ -72,9 +71,6 @@ function noSendMsg(form) {
    form.querySelector('button').disabled = true;
 }
 
-function ErrorMsg(text) {
-   $.oc.flashMsg({text: 'error', 'class': 'error', 'interval': 10});
-}
 
 /**
  * jQuery lightzoom v1.1.0

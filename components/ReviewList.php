@@ -58,9 +58,9 @@ class ReviewList extends ComponentBase {
       }
       $this->addCss('assets/css/lightzoom.css');
       if ($this->property('SortOrder') == 'new') {
-         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->orderBy('date', 'desc')->paginate($this->property('items'));
+         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->where('spam', false)->orderBy('date', 'desc')->paginate($this->property('items'));
       } elseif ($this->property('SortOrder') == 'old') {
-         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->orderBy('date', 'asc')->paginate($this->property('items'));
+         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->where('spam', false)->orderBy('date', 'asc')->paginate($this->property('items'));
       }
    }
 }
