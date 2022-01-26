@@ -1,3 +1,5 @@
 1.0.1:
     - Init
     - create_reviews_table.php
+1.0.2:
+    - add google reCAPTCHA v3
