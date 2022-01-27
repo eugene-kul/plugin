@@ -1,13 +1,13 @@
 <div class="reviews-form">
-	<form class="skip-forms" data-request="{{ __SELF__ }}::onSaveReview"
-		data-request-files
-		data-request-success="sendMsg(this);"
-		data-request-error="noSendMsg(this);"
+   <form class="skip-forms" data-request="{{ __SELF__ }}::onSaveReview"
+      data-request-files
+      data-request-success="sendMsg(this);"
+      data-request-error="noSendMsg(this);"
    >
-		<input type="hidden" name="reviewpPrt" value="">
-		{% if __SELF__.CITECODE %}
-			<input type="hidden" id="goggle_token" name="goggle_token" value="">
-		{% endif %}
+      <input type="hidden" name="reviewpPrt" value="">
+      {% if __SELF__.CITECODE %}
+         <input type="hidden" id="goggle_token" name="goggle_token" value="">
+      {% endif %}
       
       {{ form_token() }}
       {{ form_sessionKey() }}
@@ -48,10 +48,10 @@
          </label>
       </div>
       
-		<label>
-			<span>Текст отзыва<sup>*</sup></span>
-			<textarea id="review_texteditor" name="reviewText" rows="7" value="" required placeholder="Оставьте свою рекомендацию о нашей компании"></textarea>
-		</label>
+      <label>
+         <span>Текст отзыва<sup>*</sup></span>
+         <textarea id="review_texteditor" name="reviewText" rows="7" value="" required placeholder="Оставьте свою рекомендацию о нашей компании"></textarea>
+      </label>
       <div class="form-group-inputs ">
          {% if __SELF__.FilesPhoto %}
             <div class="file-input-body">
@@ -66,7 +66,7 @@
          {% endif %}
       </div>
       <div class="reviews-form-info">Нажимая на кнопку, Вы даете согласие на обработку персональных данных, указанных на сайте. Контактные данные не будут отображены в отзыве, они нужны только для обратной связи.</div>
-		<button class="btn-review btn-review-2" type="submit">Отправить</button>
+      <button class="btn-review btn-review-2" type="submit">Отправить</button>
 
       <div class="modal-success">
          <p class="modal-success__title">{{ __SELF__.SuccessSend }}</p>
@@ -81,19 +81,19 @@
          <span class="btn-review" onclick="location.reload(false);">Обновить</span>
       </div>
       {% if __SELF__.CITECODE %}
-	      <script src="https://www.google.com/recaptcha/api.js?render={{ __SELF__.CITECODE }}"></script>
-	      <script>
-	      	(function () {
-				grecaptcha.ready(function() {
-			      grecaptcha.execute('{{ __SELF__.CITECODE }}', {action: 'homepage'}).then(function(token) {
-			          inputs = document.querySelectorAll('#goggle_token');
-			          for (let input of inputs) {
-			          	input.value = token;
-			          }
-			      });
-			    });
-			}());
-	      </script>
+         <script src="https://www.google.com/recaptcha/api.js?render={{ __SELF__.CITECODE }}"></script>
+         <script>
+            (function () {
+            grecaptcha.ready(function() {
+               grecaptcha.execute('{{ __SELF__.CITECODE }}', {action: 'homepage'}).then(function(token) {
+                   inputs = document.querySelectorAll('#goggle_token');
+                   for (let input of inputs) {
+                      input.value = token;
+                   }
+               });
+             });
+         }());
+         </script>
       {% endif %}
-	</form>
+   </form>
 </div>

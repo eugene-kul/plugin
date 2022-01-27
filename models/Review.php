@@ -50,6 +50,4 @@ class Review extends Model
       'date' => 'required',
       'text' => 'required'
    ];
-
-
 }

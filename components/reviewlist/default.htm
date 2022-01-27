@@ -1,5 +1,5 @@
 <div class="reviews-list {{ __SELF__.width100 ? 'reviews-list-100' : null }}">
-	{% if __SELF__.reviews %}
+   {% if __SELF__.reviews %}
       <ul class="revirews-list-body">
          {% for item in __SELF__.reviews %}
          <li>
@@ -33,6 +33,6 @@
          </li>
          {% endfor %}
       </ul>
-	{% endif %}
-	{{ __SELF__.reviews.render|raw }}
+   {% endif %}
+   {{ __SELF__.reviews.render|raw }}
 </div>

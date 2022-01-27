@@ -95,29 +95,29 @@ class ReviewForm extends ComponentBase
    }
    
    function sendMsg() {
-   		$url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
-   		$PostName = post('reviewName');
-   		$PostRating = post('reviewRating');
+         $url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
+         $PostName = post('reviewName');
+         $PostRating = post('reviewRating');
         $PostText = post('reviewText');
         
-		try {
-		    Mail::send([
-			    'html' => '
-				    <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
-				    	<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">'. e(trans('eugene3993.reviews::lang.notification.new')) .' '.$url.'</div> 
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.name')) .':</b> '.$PostName.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.rating')) .':</b> '.$PostRating.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.text')) .':</b> '.$PostText.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.notification.link')) .':</b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
-				    	<p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px">'. e(trans('eugene3993.reviews::lang.notification.footer')) .': <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
-			    	</div>
-		    	',
-			    'raw' => true
-			 ], [], function($message) {
-			 	$message->subject('Новый отзыв на сайте');
-			 	$message->to($this->property('mail'));
-			 });
-		 } catch (Exception $e) {}
+      try {
+         Mail::send([
+            'html' => '
+               <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
+               <div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
+               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя: </b> '.$PostName.'</p>
+               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка: </b> '.$PostRating.'</p>
+               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва: </b> '.$PostText.'</p>
+               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Посмотреть отзыв в панеле управления: </b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
+               <p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px">По техническим вопросам пишите на нашу почту: <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
+            </div>
+             ',
+            'raw' => true
+         ], [], function($message) {
+             $message->subject('Новый отзыв на сайте');
+             $message->to($this->property('mail'));
+         });
+      } catch (Exception $e) {}
    }
 
    public function onSaveReview() {
@@ -125,24 +125,24 @@ class ReviewForm extends ComponentBase
       $secretKey = $this->property('SECRETCODE');
       
       if($secretKey) {
-	      $googleToken = '';
-	      
-	      if(isset($_POST['goggle_token'])) {
-	      	$googleToken = $_POST['goggle_token'];
-	      }
-	      
-	      $url = 'https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$googleToken;
-	      
-	      $response = file_get_contents($url);
-	      $responseKeys = json_decode($response, true);
-	      header('Content-type: application/json');
-	      
-	      if($responseKeys["success"] && $responseKeys["score"] >= 0.5) {
-	      	$PostPrt = true;
-	      } else {
-	      	if($this->property('sendRobotsMsg')) {
-	      		$ip = $_SERVER['REMOTE_ADDR'];
-		      	$ReviewName = new Review;
+         $googleToken = '';
+         
+         if(isset($_POST['goggle_token'])) {
+            $googleToken = $_POST['goggle_token'];
+         }
+         
+         $url = 'https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$googleToken;
+         
+         $response = file_get_contents($url);
+         $responseKeys = json_decode($response, true);
+         header('Content-type: application/json');
+         
+         if($responseKeys["success"] && $responseKeys["score"] >= 0.5) {
+            $PostPrt = true;
+         } else {
+            if($this->property('sendRobotsMsg')) {
+               $ip = $_SERVER['REMOTE_ADDR'];
+               $ReviewName = new Review;
                $ReviewName->name = 'СПАМ от бота';
                $ReviewName->text = 'IP для блокировки: '.$ip;
                $ReviewName->date = date('Y-m-d H:m:s');
@@ -150,15 +150,15 @@ class ReviewForm extends ComponentBase
                $ReviewName->spam = true;
                $ReviewName->publish = false;
                $ReviewName->save();
-	      	}
-	      	print 'Unknown Error!';
-	      }
+            }
+            print 'Unknown Error!';
+         }
       } else {
-      	$PostPrt = true;
+         $PostPrt = true;
       }
       
       if ($PostPrt) {
-      	 date_default_timezone_set('Europe/Moscow');
+          date_default_timezone_set('Europe/Moscow');
          $PostName = post('reviewName');
          $PostContacts = post('reviewContscts');
          $PostRating = post('reviewRating');
@@ -192,7 +192,7 @@ class ReviewForm extends ComponentBase
          $ReviewName->unread = true;
          $ReviewName->spam = false;
          $ReviewName->publish = false;
-		 $ReviewName->save();
+       $ReviewName->save();
       }
    }
 }

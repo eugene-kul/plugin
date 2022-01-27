@@ -156,12 +156,6 @@ return [
       'edit' => 'Edit review'
    ],
 
-   'notification' => [
-      'new'              => 'New review on the site',
-      'link'              => 'View feedback in the control panel',
-      'footer'            => 'For technical questions, write to our mail'
-   ],
-
    'unread' => 'New',
    'no'     => 'No'
 ];
