@@ -1,7 +1,7 @@
 {
     "name": "eugene3993/reviews-plugin",
     "type": "october-plugin",
-    "description": "None",
+    "description": "Plugin for displaying and moderating reviews on the site",
     "require": {
         "composer/installers": "~1.0",
         "inetis/listswitch": "^1.0.3"
