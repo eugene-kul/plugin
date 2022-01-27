@@ -10,7 +10,7 @@ Frontend of the plugin supports only Russian language
 
 Optional, but to nicely display the post review button in the review list, you need to add styles to:
 
-> *Settings* - *Control Panel Personalization* - *Styles*
+> *Settings* - *Customize back-end* - *Styles*
 
 ```bash
 .center-text {text-align: center}
