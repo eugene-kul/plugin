@@ -4,7 +4,7 @@
 
 For the plugin to work, you need to additionally install the **Inetis.ListSwitch** plugin from the October CMS marketplace.
 
-Frontend of the plugin supports only Russian language, I apologize for the inconvenience caused
+Frontend of the plugin supports only Russian language
 
 ---
 
