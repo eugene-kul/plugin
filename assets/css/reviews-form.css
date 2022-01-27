@@ -36,6 +36,8 @@
 	width: 100%;
    font-weight: normal;
    text-align: left;
+   box-sizing: border-box;
+
 }
 
 .reviews-form .form-group-inputs {
@@ -101,6 +103,8 @@
 	color: #495057;
    font-size: 14px;
    line-height: normal;
+   box-sizing: border-box;
+
 }
 
 .reviews-form label textarea {
