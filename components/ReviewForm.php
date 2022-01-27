@@ -3,6 +3,8 @@
 use Cms\Classes\ComponentBase;
 use Eugene3993\Reviews\Models\Review;
 use Input;
+use Request;
+use Mail;
 
 class ReviewForm extends ComponentBase
 {
@@ -41,9 +43,14 @@ class ReviewForm extends ComponentBase
                'title'         => 'Секретный код reCAPTCHA v3',
                'type'          => 'string'
          ],
+         'mail' => [
+               'title'         => 'Уведомление на почту',
+               'description'   => 'Укажите почту, например: mail@gmail.com. Необходимо, чтобы настройки почты (Настройка-Настройки почты) были заполнены.',
+               'type'          => 'string'
+         ],
          'sendRobotsMsg' => [
-               'title'         => 'Принимать сообщения от ботов',
-               'description'   => 'В сообщениях от ботов, в разделе текст отзыва будет содержаться IP адрес, который можно будет заблокировать для доступа к сайту',
+               'title'         => 'Принимать спам от ботов',
+               'description'   => 'В сообщениях от ботов будет указан IP адрес, который можно будет заблокировать для доступа к сайту',
                'type'          => 'checkbox'
          ],
          'reviewstyle' => [
@@ -84,15 +91,37 @@ class ReviewForm extends ComponentBase
       $this->addJs('assets/js/frontscripts.js');
    }
    
-   
-
+   function sendMsg() {
+   		$url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
+   		$PostName = post('reviewName');
+   		$PostRating = post('reviewRating');
+        $PostText = post('reviewText');
+        
+		try {
+		    Mail::send([
+			    'html' => '
+				    <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
+				    	<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя:</b> '.$PostName.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка:</b> '.$PostRating.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва:</b> '.$PostText.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Посмотреть отзыв:</b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
+				    	<p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px"> По техническим вопросам пишите на нашу почту: <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
+			    	</div>
+		    	',
+			    'raw' => true
+			 ], [], function($message) {
+			 	$message->subject('Новый отзыв на сайте');
+			 	$message->to($this->property('mail'));
+			 });
+		 } catch (Exception $e) {}
+   }
 
    public function onSaveReview() {
       $PostPrt = false;
       $secretKey = $this->property('SECRETCODE');
       
       if($secretKey) {
-      	
 	      $googleToken = '';
 	      
 	      if(isset($_POST['goggle_token'])) {
@@ -150,6 +179,8 @@ class ReviewForm extends ComponentBase
             }
          }
          
+         if($this->property('mail')) {$this->sendMsg();}
+         
          $ReviewName->name = $PostName;
          $ReviewName->text = $PostText;
          $ReviewName->contacts = $PostContacts;
@@ -158,7 +189,7 @@ class ReviewForm extends ComponentBase
          $ReviewName->unread = true;
          $ReviewName->spam = false;
          $ReviewName->publish = false;
-         $ReviewName->save();
+		 $ReviewName->save();
       }
    }
 }

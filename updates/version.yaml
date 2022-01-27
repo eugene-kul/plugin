@@ -3,3 +3,5 @@
     - create_reviews_table.php
 1.0.2:
     - add google reCAPTCHA v3
+1.0.3:
+	- added sending email notifications
