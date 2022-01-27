@@ -186,12 +186,13 @@
 
 .file-input-body span {
    color: #777;
-	line-height: 1.2;
+	line-height: normal;
    margin-bottom: .25rem;
    padding-left: .25rem;
    padding-right: 10px;
    position: relative;
    display: inline-block;
+   font-size: 14px;
 }
 
 .file-input-body .btn-del {
