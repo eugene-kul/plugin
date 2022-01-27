@@ -18,8 +18,8 @@ class Plugin extends PluginBase {
     */
    public function pluginDetails() {
       return [
-         'name'        => 'Отзывы',
-         'description' => 'Плагин для отправки и модерации отзывов',
+         'name'        => 'eugene3993.reviews::lang.plugin.details.name',
+         'description' => 'eugene3993.reviews::lang.plugin.details.description',
          'author'      => 'Eugene3993',
          'icon'        => 'icon-comments'
       ];
@@ -66,7 +66,7 @@ class Plugin extends PluginBase {
    public function registerNavigation() {
       return [
          'reviews' => [
-               'label'       => 'Отзывы',
+               'label'       => 'eugene3993.reviews::lang.plugin.menu.name',
                'url'         => Backend::url('eugene3993/reviews/Reviews'),
                'icon'        => 'icon-comments',
                'permissions' => ['eugene3993.reviews.*'],

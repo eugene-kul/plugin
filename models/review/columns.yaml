@@ -10,50 +10,50 @@ columns:
     width: 50px
     cssClass: center-text
   name:
-    label: 'Имя'
+    label: 'eugene3993.reviews::lang.models.columns.name'
     type: text
     width: 200px
     sortable: true
   text:
-    label: 'Текст отзыва'
+    label: 'eugene3993.reviews::lang.models.columns.text'
     type: text
     sortable: true
   contacts:
-    label: 'Контакты'
+    label: 'eugene3993.reviews::lang.models.columns.contacts'
     type: text
     sortable: true
   rating:
-    label: 'Оценка'
+    label: 'eugene3993.reviews::lang.models.columns.rating'
     type: text
     width: 50px
     cssClass: center-text
     sortable: true
   files:
-    label: 'Фото'
+    label: 'eugene3993.reviews::lang.models.columns.files'
     type: partial
     path: $/eugene3993/reviews/models/review/_photo-length.htm
     width: 100px
     sortable: true
     cssClass: center-text
   reply:
-    label: 'Ответ'
+    label: 'eugene3993.reviews::lang.models.columns.reply'
     type: switch
     width: 100px
     sortable: true
   publish:
-    label: 'Публикация'
+    label: 'eugene3993.reviews::lang.models.columns.publish'
     type: inetis-list-switch
     cssClass: center-text
     width: 100px
     sortable: true
   date:
-    label: 'Дата отзыва'
+    label: 'eugene3993.reviews::lang.models.columns.date'
     type: date
     width: 150px
     cssClass: center-text
     sortable: true
   updated_at:
-    label: 'Последние обновления'
+    label: 'eugene3993.reviews::lang.models.columns.updated_at'
     type: timetense
     width: 200px
     cssClass: center-text

@@ -1,7 +1,7 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отзывы</a></li>
-        <li>Новый Отзыв</li>
+        <li><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo e(trans('eugene3993.reviews::lang.breadcrumbs.reviews_list')) ?></a></li>
+        <li><?php echo e(trans('eugene3993.reviews::lang.breadcrumbs.new_review')) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -19,21 +19,21 @@
                     type="submit"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Сохранение..."
+                    data-load-indicator="<?php echo e(trans('eugene3993.reviews::lang.buttons.save_indicator')) ?>"
                     class="btn btn-primary">
-                    Сохранить
+                    <?php echo e(trans('eugene3993.reviews::lang.buttons.save')) ?>
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Сохранение..."
+                    data-load-indicator="<?php echo e(trans('eugene3993.reviews::lang.buttons.save_indicator')) ?>"
                     class="btn btn-default">
-                    Сохранить и Закрыть
+                    <?php echo e(trans('eugene3993.reviews::lang.buttons.save')) ?>
                 </button>
                 <span class="btn-text">
-                    <?php echo 'или' ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>">Отменить</a>
+                    <?php echo e(trans('eugene3993.reviews::lang.buttons.or')) ?> <a href="<?= Backend::url('eugene3993/reviews/reviews') ?>"><?php echo e(trans('eugene3993.reviews::lang.buttons.cancel')) ?></a>
                 </span>
             </div>
         </div>
@@ -43,6 +43,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default">Вернутсья к списку отзывов</a></p>
+    <p><a href="<?= Backend::url('eugene3993/reviews/reviews') ?>" class="btn btn-default"><?php echo e(trans('eugene3993.reviews::lang.errors.return_list')) ?></a></p>
 
 <?php endif ?>

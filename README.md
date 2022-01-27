@@ -4,6 +4,8 @@
 
 For the plugin to work, you need to additionally install the **Inetis.ListSwitch** plugin from the October CMS marketplace.
 
+Frontend of the plugin supports only Russian language, I apologize for the inconvenience caused
+
 ---
 
 Optional, but to nicely display the post review button in the review list, you need to add styles to:

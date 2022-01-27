@@ -5,63 +5,66 @@ use Eugene3993\Reviews\Models\Review;
 use Input;
 use Request;
 use Mail;
+use Lang;
 
 class ReviewForm extends ComponentBase
 {
    public function componentDetails()
    {
       return [
-         'name'        => 'Форма',
-         'description' => 'Форма для отправки отзыва'
+         'name'        => 'eugene3993.reviews::lang.review_form.info.name',
+         'description' => 'eugene3993.reviews::lang.review_form.info.description'
       ];
    }
 
    public function defineProperties() {
       return [
          'SuccessSend' => [
-               'title'         => 'Сообщение об отправке',
-               'description'   => 'Текст cообщения при успешной отправке отзыва',
+               'title'         => 'eugene3993.reviews::lang.review_form.success.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.success.description',
                'type'          => 'string',
-               'default'       => 'Спасибо! Ваш отзыв успешно отправлен. Он появится на сайте после модерации.'
+               'default'       => Lang::get('eugene3993.reviews::lang.review_form.success.default')
          ],
          'ErrorSend' => [
-               'title'         => 'Сообщение об ошибке',
-               'description'   => 'Текст cообщения с ошибкой отправки отзыва',
+               'title'         => 'eugene3993.reviews::lang.review_form.error.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.error.description',
                'type'          => 'string',
-               'default'       => 'Отзыв не был отправлен, пожалуйста, обновите страницу и попробуйте еще раз'
+               'default'       => Lang::get('eugene3993.reviews::lang.review_form.error.default')
          ],
          'FilesPhoto' => [
-               'title'         => 'Отправка фото',
-               'description'   => 'Разрешить отправку фотографий',
+               'title'         => 'eugene3993.reviews::lang.review_form.files.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.files.description',
                'type'          => 'checkbox'
          ],
          'CITECODE' => [
-               'title'         => 'Ключ сайта reCAPTCHA v3',
+               'title'         => 'eugene3993.reviews::lang.review_form.captcha.sitecode',
+               'description'   => 'eugene3993.reviews::lang.review_form.captcha.description',
                'type'          => 'string'
          ],
          'SECRETCODE' => [
-               'title'         => 'Секретный код reCAPTCHA v3',
+               'title'         => 'eugene3993.reviews::lang.review_form.captcha.secretcey',
+               'description'   => 'eugene3993.reviews::lang.review_form.captcha.description',
                'type'          => 'string'
          ],
          'mail' => [
-               'title'         => 'Уведомление на почту',
-               'description'   => 'Укажите почту, например: mail@gmail.com. Необходимо, чтобы настройки почты (Настройка-Настройки почты) были заполнены.',
+               'title'         => 'eugene3993.reviews::lang.review_form.mail.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.mail.description',
                'type'          => 'string'
          ],
          'sendRobotsMsg' => [
-               'title'         => 'Принимать спам от ботов',
-               'description'   => 'В сообщениях от ботов будет указан IP адрес, который можно будет заблокировать для доступа к сайту',
+               'title'         => 'eugene3993.reviews::lang.review_form.spam.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.spam.description',
                'type'          => 'checkbox'
          ],
          'reviewstyle' => [
-               'title'         => 'Подключить стили',
-               'description'   => 'Для подключения необходимо в шаблон доавить тег {% styles %}',
+               'title'         => 'eugene3993.reviews::lang.review_form.reviewstyle.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.reviewstyle.description',
                'type'          => 'checkbox',
                'default'       => 1
          ],
          'darkstyle' => [
-               'title'         => 'Темный стиль',
-               'description'   => 'Темное оформление отзывов',
+               'title'         => 'eugene3993.reviews::lang.review_form.dark.title',
+               'description'   => 'eugene3993.reviews::lang.review_form.dark.description',
                'type'          => 'checkbox',
                'default'       => 0
          ]
@@ -101,12 +104,12 @@ class ReviewForm extends ComponentBase
 		    Mail::send([
 			    'html' => '
 				    <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
-				    	<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя:</b> '.$PostName.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка:</b> '.$PostRating.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва:</b> '.$PostText.'</p>
-				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Посмотреть отзыв:</b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
-				    	<p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px"> По техническим вопросам пишите на нашу почту: <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
+				    	<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">'. e(trans('eugene3993.reviews::lang.notification.new')) .' '.$url.'</div> 
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.name')) .':</b> '.$PostName.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.rating')) .':</b> '.$PostRating.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.models.fields.text')) .':</b> '.$PostText.'</p>
+				    	<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">'. e(trans('eugene3993.reviews::lang.notification.link')) .':</b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
+				    	<p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px">'. e(trans('eugene3993.reviews::lang.notification.footer')) .': <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
 			    	</div>
 		    	',
 			    'raw' => true
@@ -140,13 +143,13 @@ class ReviewForm extends ComponentBase
 	      	if($this->property('sendRobotsMsg')) {
 	      		$ip = $_SERVER['REMOTE_ADDR'];
 		      	$ReviewName = new Review;
-		        $ReviewName->name = 'СПАМ от бота';
-		        $ReviewName->text = 'IP для блокировки: '.$ip;
-		        $ReviewName->date = date('Y-m-d H:m:s');
-		        $ReviewName->unread = true;
-		        $ReviewName->spam = true;
-		        $ReviewName->publish = false;
-		        $ReviewName->save();
+               $ReviewName->name = 'СПАМ от бота';
+               $ReviewName->text = 'IP для блокировки: '.$ip;
+               $ReviewName->date = date('Y-m-d H:m:s');
+               $ReviewName->unread = true;
+               $ReviewName->spam = true;
+               $ReviewName->publish = false;
+               $ReviewName->save();
 	      	}
 	      	print 'Unknown Error!';
 	      }

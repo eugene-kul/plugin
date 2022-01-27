@@ -5,52 +5,49 @@ use Cms\Classes\ComponentBase;
 class ReviewList extends ComponentBase {
    public function componentDetails() {
       return [
-         'name'        => 'Отзывы',
-         'description' => 'Компонент для страницы с отзывами'
+         'name'        => 'eugene3993.reviews::lang.review_list.info.name',
+         'description' => 'eugene3993.reviews::lang.review_list.info.description'
       ];
    }
 
    public function defineProperties() {
       return [
          'items' => [
-               'title'         => 'Количество',
-               'description'   => 'Определяет количетсво отзывов на странице',
+               'title'         => 'eugene3993.reviews::lang.review_list.items.title',
+               'description'   => 'eugene3993.reviews::lang.review_list.items.description',
                'default'       => '30',
          ],
          'SortOrder' => [
-               'title'         => 'Сортировка',
-               'description'   => 'Отсортировать отзывы для отображения на странице',
+               'title'         => 'eugene3993.reviews::lang.review_list.sortorder.title',
+               'description'   => 'eugene3993.reviews::lang.review_list.sortorder.description',
                'type'          => 'dropdown',
+               'options'       => [
+                  'new'    => 'eugene3993.reviews::lang.review_list.sortlist.new',
+                  'old'    => 'eugene3993.reviews::lang.review_list.sortlist.old'
+               ],
                'default'       => 'new',
          ],
          'reviewstyle' => [
-               'title'         => 'Подключить стили',
-               'description'   => 'Для подключения необходимо в шаблон доавить тег {% styles %}',
+               'title'         => 'eugene3993.reviews::lang.review_list.reviewstyle.title',
+               'description'   => 'eugene3993.reviews::lang.review_list.reviewstyle.description',
                'type'          => 'checkbox',
                'default'       => 1,
          ],
-         'itemwidth100' => [
-               'title'         => '100% ширина блока',
-               'description'   => 'Список отзывов будет занимать всю ширину родительского контейнера',
+         'itemwidth' => [
+               'title'         => 'eugene3993.reviews::lang.review_list.itemwidth.title',
+               'description'   => 'eugene3993.reviews::lang.review_list.itemwidth.description',
                'type'          => 'checkbox',
                'default'       => 0,
          ]
       ];
    }
 
-   public function getSortOrderOptions() {
-      return [
-         'new' => 'Сначала новые',
-         'old' => 'Сначала старые'
-      ];
-   }
-
    public $reviews;
    public $width100;
+   public $reply_text;
 
    public function onRun() {
-      
-      if ($this->property('itemwidth100')) {
+      if ($this->property('itemwidth')) {
          $this->width100 = true;
       }
       if ($this->property('reviewstyle')) {
@@ -58,9 +55,19 @@ class ReviewList extends ComponentBase {
       }
       $this->addCss('assets/css/lightzoom.css');
       if ($this->property('SortOrder') == 'new') {
-         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->where('spam', false)->orderBy('date', 'desc')->paginate($this->property('items'));
+         $this->reviews = \Eugene3993\Reviews\Models\Review::
+            where('spam', false)
+            ->orWhere('spam', null)
+            ->where('publish', true)
+            ->orderBy('date', 'desc')
+            ->paginate($this->property('items'));
       } elseif ($this->property('SortOrder') == 'old') {
-         $this->reviews = \Eugene3993\Reviews\Models\Review::where('publish', true)->where('spam', false)->orderBy('date', 'asc')->paginate($this->property('items'));
+         $this->reviews = \Eugene3993\Reviews\Models\Review::
+         where('spam', false)
+         ->orWhere('spam', null)
+         ->where('publish', true)
+         ->orderBy('date', 'asc')
+         ->paginate($this->property('items'));
       }
    }
 }

@@ -1,57 +1,55 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-  publish:
-    type: switch
-    label: 'Опубликовать отзыв'
-    default: false
-  name:
-    type: text
-    label: 'Имя'
-    span: auto
-    required: true
-  contacts:
-    type: text
-    label: 'Контакты: Телефон/E-mail'
-    span: auto
-  rating:
-    label: 'Оценка отзыва'
-    options:
-        - 'Выберите оценку'
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-    span: auto
-    type: dropdown
-  date:
-    label: 'Дата отзыва'
-    type: datepicker
-    mode: date
-    span: auto
-    required: true
-  files:
-    label: 'Files'
-    mode: image
-    imageWidth: '100'
-    imageHeight: '100'
-    useCaption: true
-    thumbOptions:
-        mode: crop
-        extension: auto
-    span: full
-    type: fileupload
-  text:
-    type: textarea
-    label: 'Текст отзыва'
-    size: small
-    span: full
-    required: true
-  reply:
-    type: textarea
-    label: 'Ответ на комментарий'
-    size: small
-    span: full
+    publish:
+        label: 'eugene3993.reviews::lang.models.fields.publish'
+        span: full
+        default: false
+        type: switch
+    name:
+        label: 'eugene3993.reviews::lang.models.fields.name'
+        span: left
+        required: true
+        type: text
+    contacts:
+        type: text
+        label: 'eugene3993.reviews::lang.models.fields.contacts'
+        span: auto
+    rating:
+        label: 'eugene3993.reviews::lang.models.fields.rating'
+        options:
+            - 'eugene3993.reviews::lang.models.fields.select_rating'
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+        showSearch: 0
+        span: auto
+        type: dropdown
+    date:
+        label: 'eugene3993.reviews::lang.models.fields.date'
+        type: datepicker
+        mode: date
+        span: auto
+        required: true
+    files:
+        label: 'eugene3993.reviews::lang.models.fields.files'
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
+    text:
+        type: textarea
+        label: 'eugene3993.reviews::lang.models.fields.text'
+        size: small
+        span: full
+        required: true
+    reply:
+        type: textarea
+        label: 'eugene3993.reviews::lang.models.fields.reply'
+        size: small
+        span: full

@@ -9,7 +9,7 @@ list: $/eugene3993/reviews/models/review/columns.yaml
 modelClass: Eugene3993\Reviews\Models\Review
 
 # List Title
-title: Список отзывов
+title: 'eugene3993.reviews::lang.page_title.list'
 
 # Link URL for each record
 recordUrl: eugene3993/reviews/reviews/update/:id

@@ -16,15 +16,15 @@ defaultRedirect: eugene3993/reviews/reviews
 
 # Create page
 create:
-    title: Create Simple Review
+    title: 'eugene3993.reviews::lang.page_title.create'
     redirect: eugene3993/reviews/reviews/update/:id
     redirectClose: eugene3993/reviews/reviews
-    flashSave: 'Отзыв сохранен'
+    flashSave: 'eugene3993.reviews::lang.messages.save'
 
 # Update page
 update:
-    title: 'Редактирование отзыва'
+    title: 'eugene3993.reviews::lang.page_title.edit'
     redirect: eugene3993/reviews/reviews
     redirectClose: eugene3993/reviews/reviews
-    flashSave: 'Отзыв сохранен'
-    flashDelete: 'Отзыв удален'
+    flashSave: 'eugene3993.reviews::lang.messages.save'
+    flashDelete: 'eugene3993.reviews::lang.messages.remove'
