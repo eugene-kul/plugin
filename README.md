@@ -46,6 +46,12 @@ For the plugin to work, you need to connect standard styles and scripts in the t
 {% scripts %}
 ```
 
+It is necessary to connect JQuery for scripts and AJAX Framework to work, when developing the plugin, version 3.5.1 was used
+
+```bash
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+```
+
 You need to connect the components and insert them in the right place in the code
 
 ```bash
