@@ -1,7 +1,10 @@
 1.0.1:
-    - Init
-    - create_reviews_table.php
-1.0.2: add google reCAPTCHA v3
-1.0.3: added sending email notifications
-1.0.4: add English translation for backend
-1.0.5: fixed database query error
+  - plugin first run
+  - create_reviews_table.php
+1.0.2:
+  - add google reCAPTCHA v3
+1.0.3:
+  - added sending email notifications
+  - add English translation for backend
+  - fixed a bug
+1.0.4: fixed database query error
