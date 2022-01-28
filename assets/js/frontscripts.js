@@ -1,18 +1,18 @@
-var stars = jQuery('.ec-rating').find('.ec-rating-stars>span');
-stars.on('touchend click', function(e){
-   var starDesc = jQuery(this).data('description');
+let stars = jQuery('.ec-rating').find('.ec-rating-stars>span');
+stars.on('touchend click', function(){
+   let starDesc = jQuery(this).data('description');
    jQuery(this).parent().parent().find('.ec-rating-description').html(starDesc).data('old-text', starDesc);
    jQuery(this).parent().children().removeClass('active active2 active-disabled');
    jQuery(this).prevAll().addClass('active');
    jQuery(this).addClass('active');
    // save vote
-   var storageId = jQuery(this).closest('.ec-rating').data('storage-id');
+   let storageId = jQuery(this).closest('.ec-rating').data('storage-id');
    jQuery('#' + storageId).val(jQuery(this).data('rating'));
 });
 stars.hover(
    // hover in
    function() {
-      var descEl = jQuery(this).parent().parent().find('.ec-rating-description');
+      let descEl = jQuery(this).parent().parent().find('.ec-rating-description');
       descEl.data('old-text', descEl.html());
       descEl.html(jQuery(this).data('description'));
       jQuery(this).addClass('active2').removeClass('active-disabled');
@@ -21,7 +21,7 @@ stars.hover(
    },
    // hover out
    function(){
-      var descEl = jQuery(this).parent().parent().find('.ec-rating-description');
+      let descEl = jQuery(this).parent().parent().find('.ec-rating-description');
       descEl.html(descEl.data('old-text'));
       jQuery(this).parent().children().removeClass('active2 active-disabled');
    }
@@ -35,7 +35,7 @@ Array.prototype.forEach.call(inputs, function (input) {
 	let input_item = input.querySelector('.js-input-files');
 	let btn_close = input.nextElementSibling;
 	
-	input_item.addEventListener('change', function (e) {
+	input_item.addEventListener('change', function () {
 		let countFiles = [];
 		if (this.files && this.files.length >= 1) {
          for(let item of this.files) {
@@ -83,39 +83,46 @@ function noSendMsg(form) {
 
  (function ($, window, document, undefined) {
    "use strict";
-   var pluginName = "lightzoom";
-   var defaults = {
+   let pluginName = "lightzoom";
+   let defaults = {
       overlayOpacity: "0.75",
       overlayColor: "",
    };
 
-   var html = '<div id="lz-container"><div id="lz-box"><div id="lz-overlay"></div></div></div>';
+   var html  = '<div id="lz-container">\
+                   <div id="lz-box">\
+                     <div id="lz-overlay"></div>\
+                   </div>\
+                 <div id="lz-loading-center">\
+                   <div class="lz-loading-center-box">\
+                     <div class="loadingio-spinner-spin-ev43r1evso"><div class="ldio-dcduek591i"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>\
+                   </div>\
+                 </div>\
+                </div>';
 
    function Plugin(element, options) {
       this.element = element;
       this.settings = $.extend({}, defaults, options);
-      this._defaults = defaults;
-      this._name = pluginName;
       this.init();
    }
 
    $.extend(Plugin.prototype, {
       init: function () {
-         var $this = this;
+         let $this = this;
          $this.build();
          $(document).on("click", "#lz-close", function (event) {
             event.preventDefault();
             $this.closeZoom();
          });
 
-         $(document).on("scroll", function (event) {
+         $(document).on("scroll", function () {
             $this.closeZoom();
          });
 
-         $(document).on("click", "#lz-container", function (event) {
+         $(document).on("click", "#lz-container", function () {
             $this.closeZoom();
          });
-         $(document).on("click", "#lz-overlay", function (event) {
+         $(document).on("click", "#lz-overlay", function () {
             $this.closeZoom();
          });
          
@@ -129,12 +136,11 @@ function noSendMsg(form) {
       },
 
       build: function () {
-         var $this = this;
+         let $this = this;
          $(this.element).on("click", function (event) {
             event.preventDefault();
             $("body").append(html);
-            var lz = $("#lz-box"),
-                  img = $(this).children("img"),
+            let lz = $("#lz-box"),
                   src = $(this).attr("href"),
                   overlayCss = {};
             overlayCss = {
@@ -156,11 +162,11 @@ function noSendMsg(form) {
       },
 
       setDim: function () {
-         var width,
+         let width,
             height,
             imgCss = {};
-         var winWidth = window.innerWidth ? window.innerWidth : $(window).width();
-         var winHeight = window.innerHeight ? window.innerHeight : $(window).height();
+         let winWidth = window.innerWidth ? window.innerWidth : $(window).width();
+         let winHeight = window.innerHeight ? window.innerHeight : $(window).height();
 
          if (winWidth > winHeight) {
             width = "95%";
@@ -194,14 +200,14 @@ function noSendMsg(form) {
       },
 
       closeZoom: function () {
-         var $this = this;
+         let $this = this;
          $("#lz-container").fadeOut(200, function () {
             $this.destroy();
          });
       },
 
       resize: function () {
-         var $this = this;
+         let $this = this;
          $(window).resize(function () {
             $this.setDim();
          }); // .resize();

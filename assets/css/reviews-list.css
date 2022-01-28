@@ -12,12 +12,12 @@
    box-sizing: border-box;
 }
 
-.reviews-list .revirews-list-body {
+.reviews-list .reviews-list-body {
 	list-style: none !important;
 	padding: 0;
 }
 
-.reviews-list .revirews-list-body li {
+.reviews-list .reviews-list-body li {
    list-style: none !important;
 	padding: 15px 20px !important;
 	margin-bottom: 1.5rem;
@@ -27,7 +27,7 @@
    background-color: #fff !important;
 }
 
-.reviews-list .revirews-list-body li .revirew-name-block {
+.reviews-list .reviews-list-body li .review-name-block {
    padding: 5px 0;
    border-bottom: 1px solid #ccc;
    margin-bottom: 5px;
@@ -39,10 +39,9 @@
 }
 
 .review-image {
-   border: 1px solid #ccc;
+   border: 2px solid #ccc;
    display: inline-block;
    margin: 0 5px 5px 0;
-   border: 2px solid l;
    width: 100px;
    height: 100px;
 }
@@ -60,13 +59,13 @@
    }
 }
 
-.reviews-list .revirews-list-body li .revirew-name {
+.reviews-list .reviews-list-body li .review-name {
 	font-size: 18px;
    line-height: normal;
    font-weight: 700;
 }
 
-.reviews-list .revirews-list-body li .revirew-text {
+.reviews-list .reviews-list-body li .review-text {
    font-size: 15px;
    padding: 5px 0;
    line-height: normal;
@@ -74,7 +73,7 @@
    text-align: left;
 }
 
-.reviews-list .revirews-list-body li .revirew-text p:last-child {
+.reviews-list .reviews-list-body li .review-text p:last-child {
 	margin-bottom: 0;
 }
 
@@ -151,7 +150,7 @@
    border-bottom-right-radius: .25rem;
 }
 
-.revirew-date {
+.review-date {
    display: inline-block;
    font-size: 14px;
    padding: 0 5px;
@@ -161,19 +160,19 @@
    top: -3px;
 }
 
-.revirew-rating {
+.review-rating {
    display: inline-flex;
    opacity: 0.65;
    padding: 4px 0;
 }
 
-.revirew-rating svg {
+.review-rating svg {
 	width: 18px;
 	height: 18px;
    margin-right: 2px;
 }
 
-.revirew-rating svg path {
+.review-rating svg path {
    stroke: #333;
    stroke-width: 7px;
 }

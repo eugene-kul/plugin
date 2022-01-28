@@ -16,7 +16,7 @@ class CreateReviewsTable extends Migration {
          $table->text('text');
          $table->text('reply')->nullable();
          $table->boolean('unread')->nullable();
-         $table->boolean('spam')->nullable();
+         $table->boolean('spam')->default(0);
          $table->boolean('publish')->nullable();
          $table->timestamps();
       });

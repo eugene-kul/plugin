@@ -44,28 +44,25 @@ class ReviewList extends ComponentBase {
 
    public $reviews;
    public $width100;
-   public $reply_text;
 
    public function onRun() {
       if ($this->property('itemwidth')) {
          $this->width100 = true;
       }
       if ($this->property('reviewstyle')) {
-         $this->addCss('assets/css/reviews-with-paginate.css');
+         $this->addCss('assets/css/reviews-list.css');
       }
       $this->addCss('assets/css/lightzoom.css');
       if ($this->property('SortOrder') == 'new') {
          $this->reviews = \Eugene3993\Reviews\Models\Review::
-            where('spam', false)
-            ->orWhere('spam', null)
-            ->where('publish', true)
+            where('spam', 0)
+            ->where('publish', 1)
             ->orderBy('date', 'desc')
             ->paginate($this->property('items'));
       } elseif ($this->property('SortOrder') == 'old') {
          $this->reviews = \Eugene3993\Reviews\Models\Review::
-         where('spam', false)
-         ->orWhere('spam', null)
-         ->where('publish', true)
+         where('spam', 0)
+         ->where('publish', 1)
          ->orderBy('date', 'asc')
          ->paginate($this->property('items'));
       }
