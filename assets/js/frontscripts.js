@@ -36,13 +36,15 @@ Array.prototype.forEach.call(inputs, function (input) {
 	let btn_close = input.nextElementSibling;
 	
 	input_item.addEventListener('change', function (e) {
-		let countFiles = '';
+		let countFiles = [];
 		if (this.files && this.files.length >= 1) {
-			countFiles = this.files.length;
+         for(let item of this.files) {
+			   countFiles.push(item.name);
+         }
 		}
 
 		if (countFiles) {
-			label.innerText = 'Выбрано фотографий: ' + countFiles;
+			label.innerText = countFiles.join(', ');
 			btn_close.classList.remove('hide');
          input.classList.remove('nofile');
 		}
