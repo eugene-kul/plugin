@@ -6,5 +6,6 @@
 1.0.3:
     - added sending email notifications
     - add English translation for backend
+1.0.4:
     - fixed a bug
     - fixed database query error
