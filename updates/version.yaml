@@ -7,3 +7,4 @@
     - added sending email notifications
     - add English translation for backend
     - fixed a bug
+    - fixed database query error

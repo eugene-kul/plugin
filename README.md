@@ -1,10 +1,6 @@
-# Installation wizard for October
-
 ## Plugin for displaying and moderating reviews on the site
 
-For the plugin to work, you need to additionally install the **Inetis.ListSwitch** plugin from the October CMS marketplace.
-
-Frontend of the plugin supports only Russian language
+> Frontend of the plugin supports only **Russian language**. But each component can be expanded, and the fields can be renamed as you wish.
 
 ---
 
