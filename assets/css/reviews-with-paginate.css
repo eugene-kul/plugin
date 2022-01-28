@@ -13,18 +13,18 @@
 }
 
 .reviews-list .revirews-list-body {
-	list-style: none;
-	padding-left: 0;
+	list-style: none !important;
+	padding: 0;
 }
 
 .reviews-list .revirews-list-body li {
-   list-style: none;
-	padding: 15px 20px;
+   list-style: none !important;
+	padding: 15px 20px !important;
 	margin-bottom: 1.5rem;
    border-radius: 5px;
    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.05);
    border: 1px solid #ddd;
-   background-color: #fff;
+   background-color: #fff !important;
 }
 
 .reviews-list .revirews-list-body li .revirew-name-block {
