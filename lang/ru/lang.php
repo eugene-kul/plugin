@@ -3,7 +3,7 @@
 return [
 	'plugin' => [
 		'details' => [
-			'name' 			=> 'Отзывы',
+			'name' 			=> 'Reviews Manager',
 			'description' 	=> 'Плагин для модерации, отправки и отображения отзывов на сайте'
 		],
 

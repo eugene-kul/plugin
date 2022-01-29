@@ -52,10 +52,10 @@
          <span>Текст отзыва<sup>*</sup></span>
          <textarea id="review_texteditor" name="reviewText" rows="7" value="" required placeholder="Оставьте свою рекомендацию о нашей компании"></textarea>
       </label>
-      <div class="form-group-inputs ">
+      <div class="form-group-inputs input-file">
          {% if __SELF__.FilesPhoto %}
+         	<span class="file-input-label-text">Размер одной фотографии не более 5 Мб. Максимальное количество фотографий: 7 шт.</span>
             <div class="file-input-body">
-               <span>Размер одной фотографии не более 5 Мб. Максимальное количество фотографий: 7 шт.</span>
                <label for="file-1" class="file-input-label nofile js-input-files-label">
                   <span>Выберите фото</span>
                   <div class="file-input-icon"><svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m12 14c-.192 0-.384-.073-.53-.22l-5.25-5.25c-.471-.471-.136-1.28.53-1.28h2.75v-6c0-.689.561-1.25 1.25-1.25h2.5c.689 0 1.25.561 1.25 1.25v6h2.75c.666 0 1.001.809.53 1.28l-5.25 5.25c-.146.147-.338.22-.53.22z"/><path d="m11 21.192-11-5.042v2.35c0 .199.118.379.301.458l10.699 4.652z"/><path d="m13 21.192v2.419l10.699-4.652c.183-.08.301-.26.301-.459v-2.35z"/><path d="m17.581 11.558-3.636 3.636c-.52.52-1.211.806-1.945.806s-1.425-.286-1.944-.806l-3.636-3.636-6.42 2.942 12 5.5 12-5.5z"/></svg></div>

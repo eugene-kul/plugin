@@ -3,7 +3,7 @@
 return [
 	'plugin' => [
 		'details' => [
-			'name' 			=> 'Reviews',
+			'name' 			=> 'Reviews Manager',
 			'description' 	=> 'Plugin for moderation, sending and displaying reviews on the site'
 		],
 
