@@ -256,7 +256,7 @@
 	display: inline-block;
 	box-sizing: border-box;
 	padding: 10px 20px;
-	margin: 10px 15px 10px 0;
+	margin: 10px 0;
 	outline: none;
 	border: 1px solid rgba(23,23,23,0.1);
 	border-radius: 4px;
