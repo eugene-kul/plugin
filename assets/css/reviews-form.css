@@ -232,7 +232,7 @@
 .file-input-body .btn-del:before {
    content: '✕';
    font-size: 14px;
-   line-height: normal;
+   line-height: 16px;
    font-weight: 700;
    color: #666;
 }
