@@ -94,11 +94,11 @@ class ReviewForm extends ComponentBase
       $this->addJs('assets/js/frontscripts.js');
    }
    
-   function sendMsg() {
-         $url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
-         $PostName = post('reviewName');
-         $PostRating = post('reviewRating');
-        $PostText = post('reviewText');
+   function sendReviews() {
+      $url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
+      $PostName = post('reviewName');
+      $PostRating = post('reviewRating');
+      $PostText = post('reviewText');
         
       try {
          Mail::send([
@@ -114,8 +114,8 @@ class ReviewForm extends ComponentBase
              ',
             'raw' => true
          ], [], function($message) {
-             $message->subject('Новый отзыв на сайте');
-             $message->to($this->property('mail'));
+            $message->subject('Новый отзыв на сайте');
+            $message->to($this->property('mail'));
          });
       } catch (Exception $e) {}
    }
@@ -182,7 +182,7 @@ class ReviewForm extends ComponentBase
             }
          }
          
-         if($this->property('mail')) {$this->sendMsg();}
+         if($this->property('mail')) {$this->sendReviews();}
          
          $ReviewName->name = $PostName;
          $ReviewName->text = $PostText;

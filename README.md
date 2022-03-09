@@ -55,6 +55,6 @@ The feedback submission form must have the following attributes:
 ```bash
 data-request="onSaveReview"
 data-request-files
-data-request-success="sendMsg(this);"
-data-request-error="noSendMsg(this);"
+data-request-success="sendReviews(this);"
+data-request-error="noSendReviews(this);"
 ```

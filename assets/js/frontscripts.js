@@ -63,12 +63,12 @@ Array.prototype.forEach.call(inputs, function (input) {
 });
 /** выбор файлов */
 
-function sendMsg(form) {
+function sendReviews(form) {
    form.querySelector('.modal-success').classList.add('active');
    form.querySelector('button').disabled = true;
 }
 
-function noSendMsg(form) {
+function noSendReviews(form) {
    form.querySelector('.modal-success-error').classList.add('active');
    form.querySelector('button').disabled = true;
 }

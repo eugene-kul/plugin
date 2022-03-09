@@ -1,8 +1,8 @@
 <div class="reviews-form">
    <form class="skip-forms" data-request="{{ __SELF__ }}::onSaveReview"
       data-request-files
-      data-request-success="sendMsg(this);"
-      data-request-error="noSendMsg(this);"
+      data-request-success="sendReviews(this);"
+      data-request-error="noSendReviews(this);"
    >
       <input type="hidden" name="reviewpPrt" value="">
       {% if __SELF__.CITECODE %}
