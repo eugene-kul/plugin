@@ -103,13 +103,13 @@ class ReviewForm extends ComponentBase
       try {
          Mail::send([
             'html' => '
-               <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
-               <div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
-               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя: </b> '.$PostName.'</p>
-               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка: </b> '.$PostRating.'</p>
-               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва: </b> '.$PostText.'</p>
-               <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Посмотреть отзыв в панеле управления: </b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
-               <p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px">По техническим вопросам пишите на нашу почту: <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
+<div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
+<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
+<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя: </b> '.$PostName.'</p>
+<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка: </b> '.$PostRating.'</p>
+<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва: </b> '.$PostText.'</p>
+<p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Посмотреть отзыв в панеле управления: </b> '.$url.'/backend/eugene3993/reviews/Reviews</p>
+<p style="color:#aeaeae;font-size:12px;margin:15px 10px; 10px">По техническим вопросам пишите на нашу почту: <a href="mailto:support@ya-mobile.ru" style="color:#5c5c5c;" target="_blank" rel="noopener noreferrer">support@ya-mobile.ru</a> </p>
             </div>
              ',
             'raw' => true
