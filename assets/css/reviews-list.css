@@ -17,7 +17,7 @@
 	padding: 0;
 }
 
-.reviews-list .reviews-list-body li {
+.reviews-list .reviews-list-body .reviews-list-item {
    list-style: none !important;
 	padding: 15px 20px !important;
 	margin-bottom: 1.5rem;
@@ -27,7 +27,7 @@
    background-color: #fff !important;
 }
 
-.reviews-list .reviews-list-body li .review-name-block {
+.reviews-list .reviews-list-body .reviews-list-item .review-name-block {
    padding: 5px 0;
    border-bottom: 1px solid #ccc;
    margin-bottom: 5px;
@@ -59,13 +59,13 @@
    }
 }
 
-.reviews-list .reviews-list-body li .review-name {
+.reviews-list .reviews-list-body .reviews-list-item .review-name {
 	font-size: 18px;
    line-height: normal;
    font-weight: 700;
 }
 
-.reviews-list .reviews-list-body li .review-text {
+.reviews-list .reviews-list-body .reviews-list-item .review-text {
    font-size: 15px;
    padding: 5px 0;
    line-height: normal;
@@ -73,7 +73,7 @@
    text-align: left;
 }
 
-.reviews-list .reviews-list-body li .review-text p:last-child {
+.reviews-list .reviews-list-body .reviews-list-item .review-text p:last-child {
 	margin-bottom: 0;
 }
 
