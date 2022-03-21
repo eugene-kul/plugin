@@ -18,15 +18,15 @@
    color: #333 !important;
 }
 
-.reviews-list .reviews-list-body li {
+.reviews-list .reviews-list-body .reviews-list-item {
    background-color: #666 !important;
 }
 
-.reviews-list .reviews-list-body li .review-name {
+.reviews-list .reviews-list-body .reviews-list-item .review-name {
    color: #fff !important;
 }
 
-.reviews-list .reviews-list-body li .review-text {
+.reviews-list .reviews-list-body .reviews-list-item .review-text {
    color: #fff !important;
 }
 
