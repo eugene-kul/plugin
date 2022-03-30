@@ -84,27 +84,27 @@ class ReviewForm extends ComponentBase
             $this->addCss('assets/css/reviews-dark.css');
          }
       }
-      
+
       $this->CITECODE = $this->property('CITECODE');
       $this->SECRETCODE = $this->property('SECRETCODE');
-      
+
       $this->SuccessSend = $this->property('SuccessSend');
       $this->ErrorSend = $this->property('ErrorSend');
       $this->FilesPhoto = $this->property('FilesPhoto');
       $this->addJs('assets/js/frontscripts.js');
    }
-   
+
    function sendReviews() {
-      $url = str_replace($_SERVER['REQUEST_URI'], '', Request::url());
+      $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
       $PostName = post('reviewName');
       $PostRating = post('reviewRating');
       $PostText = post('reviewText');
-        
+
       try {
          Mail::send([
             'html' => '
 <div style="padding: 10px 20px; background-color: #eee;border-radius: 5px;">
-<div style="color:#333;padding: 10px 0;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div> 
+<div style="color:#333;padding: 10px;font-size: 20px;margin: 0 0 10px 0;border-bottom: 1px solid #ddd;">Новый отзыв на сайте '.$url.'</div>
 <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Имя: </b> '.$PostName.'</p>
 <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Оценка: </b> '.$PostRating.'</p>
 <p style="color:#888;margin: 0 0 10px 0;padding: 5px 10px;border-bottom: 1px solid #ddd;"><b style="color:#555;">Текст отзыва: </b> '.$PostText.'</p>
@@ -123,20 +123,20 @@ class ReviewForm extends ComponentBase
    public function onSaveReview() {
       $PostPrt = false;
       $secretKey = $this->property('SECRETCODE');
-      
+
       if($secretKey) {
          $googleToken = '';
-         
+
          if(isset($_POST['goggle_token'])) {
             $googleToken = $_POST['goggle_token'];
          }
-         
+
          $url = 'https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$googleToken;
-         
+
          $response = file_get_contents($url);
          $responseKeys = json_decode($response, true);
          header('Content-type: application/json');
-         
+
          if($responseKeys["success"] && $responseKeys["score"] >= 0.5) {
             $PostPrt = true;
          } else {
@@ -156,7 +156,7 @@ class ReviewForm extends ComponentBase
       } else {
          $PostPrt = true;
       }
-      
+
       if ($PostPrt) {
           date_default_timezone_set('Europe/Moscow');
          $PostName = post('reviewName');
@@ -167,7 +167,7 @@ class ReviewForm extends ComponentBase
          $ReviewName = new Review;
          $key = 0;
          $files = Input::file('reviewFile');
-         
+
          if (Input::hasFile('reviewFile')) {
             foreach($files as $file) {
                $name = $file->getClientOriginalExtension();
@@ -181,9 +181,9 @@ class ReviewForm extends ComponentBase
                }
             }
          }
-         
+
          if($this->property('mail')) {$this->sendReviews();}
-         
+
          $ReviewName->name = $PostName;
          $ReviewName->text = $PostText;
          $ReviewName->contacts = $PostContacts;
